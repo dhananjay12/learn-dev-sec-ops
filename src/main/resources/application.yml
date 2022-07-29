@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: employee-service
+  profiles:
+    active: local
+  liquibase:
+    change-log: classpath:db-changelog.xml
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    show_sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties:
+        hibernate.cache.use_query_cache: false
+        hibernate.generate_statistics: true
+  h2:
+    console:
+      enabled: true
+
+---
+
+spring:
+  profiles: mariadb
+  datasource:
+    url: jdbc:mariadb://localhost:3306/dating?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC
+    username: backend
+    password: password
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    database: mariadb
+    openInView: false
+    show_sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties:
+        hibernate.cache.use_query_cache: false
+        hibernate.generate_statistics: true
