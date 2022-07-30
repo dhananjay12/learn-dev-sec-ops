@@ -1,6 +1,6 @@
-package com.djcodes.test.containers.crudservice;
+package com.djcodes.devsecops;
 
-import com.djcodes.test.containers.crudservice.dto.EmployeeDTO;
+import com.djcodes.devsecops.dto.EmployeeDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Calendar;
 import org.junit.jupiter.api.Test;

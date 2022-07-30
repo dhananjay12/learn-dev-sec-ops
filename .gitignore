@@ -1,5 +1,5 @@
 HELP.md
-HELP.md
+.DS_Store
 target/
 !.mvn/wrapper/maven-wrapper.jar
 **/target/

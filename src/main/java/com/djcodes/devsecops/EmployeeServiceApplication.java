@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice;
+package com.djcodes.devsecops;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

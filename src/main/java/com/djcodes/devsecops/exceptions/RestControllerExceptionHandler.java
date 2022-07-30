@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.exceptions;
+package com.djcodes.devsecops.exceptions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.stream.Collectors;

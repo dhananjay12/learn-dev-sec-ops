@@ -1,14 +1,14 @@
-package com.djcodes.test.containers.crudservice.controller;
+package com.djcodes.devsecops.controller;
 
-import com.djcodes.test.containers.crudservice.controller.mapper.EmployeeMapper;
-import com.djcodes.test.containers.crudservice.dto.EmployeeDTO;
-import com.djcodes.test.containers.crudservice.exceptions.EntityNotFoundException;
-import com.djcodes.test.containers.crudservice.exceptions.ValidationException;
-import com.djcodes.test.containers.crudservice.persistence.EmployeeEntity;
-import com.djcodes.test.containers.crudservice.persistence.EmployeeRepository;
+import com.djcodes.devsecops.controller.mapper.EmployeeMapper;
+import com.djcodes.devsecops.dto.EmployeeDTO;
+import com.djcodes.devsecops.exceptions.EntityNotFoundException;
+import com.djcodes.devsecops.exceptions.ValidationException;
+import com.djcodes.devsecops.persistence.EmployeeEntity;
+import com.djcodes.devsecops.persistence.EmployeeRepository;
 import java.util.Optional;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

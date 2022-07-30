@@ -88,6 +88,48 @@
           </execution>
         </executions>
       </plugin>
+      <!--                   PITest Mutation Plugin                   -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.7.3</version> <!-- Java 17 fix https://github.com/hcoles/pitest/issues/964 -->
+        <executions>
+          <execution>
+            <id>pit-report</id>
+            <!-- optional, this example attached the goal into mvn test phase -->
+            <phase>test</phase>
+            <goals>
+              <goal>mutationCoverage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <!-- https://github.com/hcoles/pitest/issues/284 -->
+        <!-- Need this to support JUnit 5 -->
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.15</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <!--disable placing PIT reports in time-based subfolders-->
+          <timestampedReports>false</timestampedReports>
+          <!--mutation testing is a time consuming task, always declares the classes that are needed for the mutation test-->
+          <targetClasses>
+            <param>com.djcodes.devsecops.utils.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>com.djcodes.devsecops.utils.*</param>
+          </targetTests>
+          <mutationThreshold>70</mutationThreshold>
+          <outputFormats>
+            <outputFormat>XML</outputFormat>
+            <outputFormat>HTML</outputFormat>
+          </outputFormats>
+          <!-- Add specific <mutators> here if you want to control what could be changed-->
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

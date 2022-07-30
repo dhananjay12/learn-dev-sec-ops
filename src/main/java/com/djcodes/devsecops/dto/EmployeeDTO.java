@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.dto;
+package com.djcodes.devsecops.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

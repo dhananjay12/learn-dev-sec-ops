@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.persistence;
+package com.djcodes.devsecops.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

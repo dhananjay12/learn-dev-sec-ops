@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.exceptions;
+package com.djcodes.devsecops.exceptions;
 
 public class ValidationException extends RuntimeException {
 

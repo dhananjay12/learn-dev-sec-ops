@@ -1,7 +1,7 @@
-package com.djcodes.test.containers.crudservice.controller.mapper;
+package com.djcodes.devsecops.controller.mapper;
 
-import com.djcodes.test.containers.crudservice.dto.EmployeeDTO;
-import com.djcodes.test.containers.crudservice.persistence.EmployeeEntity;
+import com.djcodes.devsecops.dto.EmployeeDTO;
+import com.djcodes.devsecops.persistence.EmployeeEntity;
 
 public class EmployeeMapper {
 

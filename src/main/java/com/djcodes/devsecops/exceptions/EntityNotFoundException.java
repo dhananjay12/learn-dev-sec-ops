@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.exceptions;
+package com.djcodes.devsecops.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

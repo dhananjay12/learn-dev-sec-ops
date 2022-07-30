@@ -1,4 +1,4 @@
-package com.djcodes.test.containers.crudservice.persistence;
+package com.djcodes.devsecops.persistence;
 
 import java.util.Calendar;
 import javax.persistence.Column;
