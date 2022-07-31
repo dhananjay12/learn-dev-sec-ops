@@ -43,9 +43,9 @@ jobs:
           project: 'test'
           path: '.'
           format: 'HTML'
-          out: ${{github.workspace}}/target/dependency-check-report
           #https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
           args: >
+            --out ${{github.workspace}}/target/dependency-check-report
             --enableRetired
       - name: Upload Test results
         uses: actions/upload-artifact@master
