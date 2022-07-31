@@ -45,10 +45,10 @@ jobs:
           format: 'HTML'
           #https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
           args: >
-            '--out ${{github.workspace}}/target/dependency-check-report'
             --enableRetired
       - name: Upload Dependency Check Results
         uses: actions/upload-artifact@master
         with:
           name: Depcheck report
-          path: ${{github.workspace}}/target/dependency-check-report
+          # The action forces to put in --out /github/workspace/reports.
+          path: ${{github.workspace}}/reports
