@@ -18,7 +18,7 @@
     <java.version>17</java.version>
 
     <!-- sonar properties -->
-    <sonar.projectKey>learn-dev-sec-ops</sonar.projectKey>
+    <sonar.projectKey>dhananjay12_learn-dev-sec-ops</sonar.projectKey>
     <sonar.organization>dhananjay12</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
