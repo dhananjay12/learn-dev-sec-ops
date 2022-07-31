@@ -43,6 +43,7 @@ jobs:
           project: 'test'
           path: '.'
           format: 'HTML'
+          out: './target/dependency-check-report'
           #https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
           args: >
             --enableRetired
@@ -50,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: Depcheck report
-          path: ${{github.workspace}}/reports
+          path: ${{github.workspace}}/target/dependency-check-report
