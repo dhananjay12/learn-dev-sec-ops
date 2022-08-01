@@ -53,14 +53,14 @@ jobs:
           # The action forces to put in --out /github/workspace/reports.
           path: ${{github.workspace}}/reports
 
-      - name: Build Images using JIB
-        run: mvn -Dmaven.test.skip=true package jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_PASSWORD }}
-
       - name: Get version
         run: |
           DOCKER_TAG=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
           echo "::set-output name=DOCKER_TAG::$DOCKER_TAG"
         id: get_version
+
+      - name: Build Images using JIB
+        run: mvn -Dmaven.test.skip=true package jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_KEY }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
