@@ -16,7 +16,7 @@
 
   <properties>
     <java.version>17</java.version>
-    <docker.image.url>dhananjay12</docker.image.url>
+    <docker.image.url>registry.hub.docker.com/dhananjay12</docker.image.url>
     <docker.image.prefix>devsecops</docker.image.prefix>
 
     <!-- sonar properties -->
