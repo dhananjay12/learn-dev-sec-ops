@@ -16,6 +16,8 @@
 
   <properties>
     <java.version>17</java.version>
+    <docker.image.url>dhananjay12</docker.image.url>
+    <docker.image.prefix>devsecops</docker.image.prefix>
 
     <!-- sonar properties -->
     <sonar.projectKey>dhananjay12_learn-dev-sec-ops</sonar.projectKey>
@@ -159,6 +161,52 @@
                                         <suppressionFile>project-suppression.xml</suppressionFile>
                                     </suppressionFiles>
                                  -->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <version>4.9.10</version>
+        <executions>
+          <execution>
+            <id>get-the-git-infos</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <generateGitPropertiesFile>false</generateGitPropertiesFile>
+          <dateFormat>yyyy-MM-dd'T'HH:mm:ss'Z'</dateFormat>
+          <dateFormatTimeZone>GMT</dateFormatTimeZone>
+          <includeOnlyProperties>
+            <includeOnlyProperty>^git.commit.time$</includeOnlyProperty>
+          </includeOnlyProperties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <from>
+            <image>openjdk:17.0.2-bullseye</image>
+          </from>
+          <to>
+            <image>${docker.image.url}/${docker.image.prefix}-${project.artifactId}</image>
+            <tags>
+              <tag>${project.version}</tag>
+            </tags>
+          </to>
+          <container>
+            <creationTime>${git.commit.time}</creationTime>
+            <filesModificationTime>${git.commit.time}</filesModificationTime>
+            <mainClass>com.djcodes.devsecops.EmployeeServiceApplication</mainClass>
+            <ports>
+              <port>8080</port>
+            </ports>
+          </container>
         </configuration>
       </plugin>
     </plugins>
