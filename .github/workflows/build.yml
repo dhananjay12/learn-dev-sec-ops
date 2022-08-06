@@ -97,7 +97,7 @@ jobs:
 
   owasp-zap:
     runs-on: ubuntu-latest
-    needs: [dependency-check,dockerfile-check,docker-image-check]
+    needs: [dependency-check,dockerfile-check,docker-image-check,build]
     services:
       spring-app:
         image: dhananjay12/devsecops-employee-service:${{ steps.get_version.outputs.DOCKER_TAG }}
