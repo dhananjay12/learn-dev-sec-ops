@@ -100,7 +100,7 @@ jobs:
     needs: [dependency-check,dockerfile-check,docker-image-check,build]
     services:
       spring-app:
-        image: dhananjay12/devsecops-employee-service:${{ needs.build.steps.get_version.outputs.DOCKER_TAG }}
+        image: dhananjay12/devsecops-employee-service:${{ needs.build.outputs.DOCKER_TAG }}
         ports:
           - 8080:8080
         options: --health-cmd curl "http://localhost:8081/actuator/health" --health-interval 30s --health-timeout 5s --health-retries 5
