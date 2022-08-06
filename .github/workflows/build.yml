@@ -42,6 +42,7 @@ jobs:
       - name: Build Images using JIB
         run: mvn -Dmaven.test.skip=true package jib:build -Djib.to.auth.username=${{ secrets.DOCKERHUB_USERNAME }} -Djib.to.auth.password=${{ secrets.DOCKERHUB_KEY }}
 
+    #Within job you can refer steps for output. While jobs can also refer other jobs steps via `needs`. it best to outputs stuff from jobs for clarity
     outputs:
       imageTag: ${{ steps.get_version.outputs.DOCKER_TAG }}
 
@@ -114,5 +115,4 @@ jobs:
         with:
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://spring-app:8080/v3/api-docs'
-          rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
