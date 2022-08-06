@@ -94,3 +94,22 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+
+  owasp-zap:
+    runs-on: ubuntu-latest
+    needs: [dependency-check,dockerfile-check,docker-image-check]
+    services:
+      spring-app:
+        image: dhananjay12/devsecops-employee-service:${{ steps.get_version.outputs.DOCKER_TAG }}
+        ports:
+          - 8080:8080
+        options: --health-cmd curl "http://localhost:8081/actuator/health" --health-interval 30s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.4.0
+        with:
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'http://spring-app:8080/v3/api-docs'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
