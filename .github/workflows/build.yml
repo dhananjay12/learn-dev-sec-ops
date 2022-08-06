@@ -33,7 +33,7 @@ jobs:
         # Make sure automatic scanning of the project in snarcloud UI is disable. It can only do via pull or push
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
-      - name: Depcheck
+      - name: Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         env:
@@ -72,3 +72,7 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+
+      - name: OPA Conftest
+        run: |
+          docker run --rm -v $(pwd):/project openpolicyagent/conftest:v0.34.0 test --policy opa-docker-security.rego Dockerfile
