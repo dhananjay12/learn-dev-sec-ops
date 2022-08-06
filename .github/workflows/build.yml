@@ -106,7 +106,7 @@ jobs:
         image: dhananjay12/devsecops-employee-service:${{ needs.build.outputs.imageTag }}
         ports:
           - 8080:8080
-        options: --health-cmd curl "http://localhost:8081/actuator/health" --health-interval 30s --health-timeout 5s --health-retries 5
+        options: --health-cmd "curl http://localhost:8080/actuator/health" --health-interval 30s --health-timeout 5s --health-retries 5
 
     steps:
       - name: ZAP Scan
