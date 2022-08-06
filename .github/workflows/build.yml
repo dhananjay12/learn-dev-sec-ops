@@ -33,20 +33,6 @@ jobs:
         # Make sure automatic scanning of the project in sonarcloud UI is disable. It can only do via pull or push
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
-      - name: Dependency Check
-        uses: dependency-check/Dependency-Check_Action@main
-        id: Depcheck
-        env:
-          # actions/setup-java@v1 changes JAVA_HOME so it needs to be reset to match the depcheck image
-          JAVA_HOME: /opt/jdk
-        with:
-          project: 'test'
-          path: '.'
-          format: 'HTML'
-          #https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
-          args: >
-            --enableRetired
-
       - name: Get version
         run: |
           DOCKER_TAG=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
@@ -60,6 +46,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        env:
+          # actions/setup-java@v1 changes JAVA_HOME so it needs to be reset to match the depcheck image
+          JAVA_HOME: /opt/jdk
+        with:
+          project: 'test'
+          path: '.'
+          format: 'HTML'
+          #https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
+          args: >
+            --enableRetired
       - name: Upload Dependency Check Results
         uses: actions/upload-artifact@master
         with:
