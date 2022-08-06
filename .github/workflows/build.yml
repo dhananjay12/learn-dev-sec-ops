@@ -75,4 +75,4 @@ jobs:
 
       - name: OPA Conftest
         run: |
-          docker run --rm -v $(pwd):/project openpolicyagent/conftest:v0.34.0 test --policy docker-security.rego Dockerfile
+          docker run --rm -v $(pwd):/project openpolicyagent/conftest:v0.34.0 test --policy dockerfile-security.rego Dockerfile
