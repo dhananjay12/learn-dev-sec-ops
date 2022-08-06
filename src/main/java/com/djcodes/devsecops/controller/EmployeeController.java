@@ -32,7 +32,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> find(@PathVariable int id) {
+    public ResponseEntity<EmployeeDTO> find(@PathVariable int id) {
         Optional<EmployeeEntity> result = employeeRepository.findById(id);
         if (result.isPresent()) {
             return ResponseEntity.ok(EmployeeMapper.makeDTO(result.get()));
@@ -67,7 +67,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable int id) {
+    public ResponseEntity<Void> delete(@PathVariable int id) {
         Optional<EmployeeEntity> result = employeeRepository.findById(id);
         if (result.isPresent()) {
             return ResponseEntity.ok().build();

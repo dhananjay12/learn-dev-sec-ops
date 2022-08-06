@@ -8,25 +8,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PalindromeTest {
     @Test
-    public void whenEmptyString_thanAccept() {
+    void whenEmptyString_thanAccept() {
         Palindrome palindromeTester = new Palindrome();
         assertTrue(palindromeTester.isPalindrome(""));
     }
 
     @Test
-    public void whenPalindrom_thanAccept() {
+    void whenPalindrome_thanAccept() {
         Palindrome palindromeTester = new Palindrome();
         assertTrue(palindromeTester.isPalindrome("noon"));
     }
 
     @Test
-    public void whenNotPalindrom_thanReject(){
+    void whenNotPalindrome_thanReject(){
         Palindrome palindromeTester = new Palindrome();
         assertFalse(palindromeTester.isPalindrome("box"));
     }
 
     @Test
-    public void whenNearPalindrom_thanReject(){
+    void whenNearPalindrome_thanReject(){
         Palindrome palindromeTester = new Palindrome();
         assertFalse(palindromeTester.isPalindrome("neon"));
     }

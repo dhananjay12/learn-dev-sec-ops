@@ -25,7 +25,7 @@ public class CrudServiceApplicationTests {
     private MockMvc mvc;
 
     @Test
-    public void restTemplatePost_201() throws Exception {
+    void restTemplatePost_201() throws Exception {
 
         Calendar cal = Calendar.getInstance();
         cal.set(2000, 9, 12);

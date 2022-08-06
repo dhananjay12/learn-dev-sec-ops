@@ -5,6 +5,8 @@ import com.djcodes.devsecops.persistence.EmployeeEntity;
 
 public class EmployeeMapper {
 
+    private EmployeeMapper(){}
+
     public static EmployeeEntity makeEntity(EmployeeDTO employeeDTO) {
         return new EmployeeEntity(employeeDTO.getId(), employeeDTO.getFname(),
             employeeDTO.getLname(), employeeDTO.getEmail(), employeeDTO.getDob());

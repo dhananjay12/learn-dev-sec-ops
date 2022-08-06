@@ -3,15 +3,15 @@ package com.djcodes.devsecops.exceptions;
 public class ValidationException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
-    private String msg;
+    private final String message;
 
-    public ValidationException(String msg) {
-        this.msg = msg;
+    public ValidationException(String message) {
+        this.message = message;
 
     }
 
     public String getMsg() {
-        return msg;
+        return message;
     }
 
 }
