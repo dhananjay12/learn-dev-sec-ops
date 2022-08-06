@@ -111,8 +111,9 @@ jobs:
 
     steps:
       - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.4.0
+        uses: zaproxy/action-api-scan@v0.1.1
         with:
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://spring-app:8080/v3/api-docs'
           cmd_options: '-a'
+          fail_action: "false"
