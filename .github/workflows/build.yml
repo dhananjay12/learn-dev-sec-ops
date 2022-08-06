@@ -71,6 +71,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
       - name: OPA Conftest
         run: |
           docker run --rm -v $(pwd):/project openpolicyagent/conftest:v0.34.0 test --policy dockerfile-security.rego Dockerfile
