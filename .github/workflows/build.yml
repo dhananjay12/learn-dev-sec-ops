@@ -114,6 +114,6 @@ jobs:
         uses: zaproxy/action-api-scan@v0.1.1
         with:
           docker_name: 'owasp/zap2docker-stable'
-          target: 'http://spring-app:8080/v3/api-docs'
+          target: 'http://localhost:8080/v3/api-docs'
           cmd_options: '-a'
           fail_action: "false"
